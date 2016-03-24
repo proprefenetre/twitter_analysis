@@ -124,13 +124,12 @@ def getDF(db_name, server):
 
 df1 = getDF('twitter_belgium_inc', COUCH_SERVER)
 df2 = getDF('twitter_locations', COUCH_SERVER)
-
+df = df1.append(df2)
 
 # write df to csv-file to speed things up
-with open("twitter_belgium.csv", 'w') as f1:
-    df1.to_csv(f)
-with open("twitter_locations.csv", 'w') as f2:
-    df2.to_csv(f)
-with open("twitter_complete.csv", 'w') as f3:
-    df = df1.append(df2)
-    df.to_csv(f3)
+with open("twitter_belgium.json", 'w') as f1:
+    df1.to_json(f1)
+with open("twitter_locations.json", 'w') as f2:
+    df2.to_json(f2)
+with open("twitter_complete.json)", 'w') as f3:
+    df.to_json(f3)
