@@ -54,7 +54,7 @@ def center(b_box, rev=True):
 
 # connect to the server
 COUCH_SERVER = 'http://192.168.1.106:5984/'
-db = TweetStore('twitter_belgium_inc', COUCH_SERVER)
+db = TweetStore('twitter_locations', COUCH_SERVER)
 
 # to speed things up a little bit, we can process the text later
 tweets = [flatten(dict(t)) for t in db.get_tweets()]
@@ -89,5 +89,5 @@ for k,v in n_en_idMap.items():
 df["place_name_tr"] = df["place_id"].map(en_idMap)
 
 # write df to csv-file to speed things up
-with open("twitter_data.csv", 'a') as f:
+with open("twitter_locations_data.csv", 'a') as f:
     df.to_csv(f)
